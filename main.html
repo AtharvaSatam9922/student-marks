@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Prediction</title>
+</head>
+
+<body>
+
+    <h1>Student Marks Prediction</h1>
+
+    <input type="number" id="study_hours" placeholder="Enter study hours">
+
+    <button onclick="predictMarks()">Predict Marks</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        async function predictMarks() {
+
+            const studyHours = document.getElementById("study_hours").value;
+
+            const response = await fetch(
+                "http://127.0.0.1:8000/predict?study_hours=" 
+                + encodeURIComponent(studyHours),
+                {
+                    method: "POST"
+                }
+            );
+
+            const data = await response.json();
+
+            document.getElementById("result").textContent =
+                "Predicted marks: " + data.predicted_marks;
+        }
+
+    </script>
+
+</body>
+</html>
