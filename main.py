@@ -15,7 +15,7 @@ app.add_middleware(
 model = joblib.load("model.pkl")
 
 
-@app.post("/predict")
+@app.post("/")
 def predict(study_hours: float):
 
     prediction = model.predict([[study_hours]])
