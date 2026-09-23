@@ -21,7 +21,7 @@
             const studyHours = document.getElementById("study_hours").value;
 
             const response = await fetch(
-                "http://127.0.0.1:8000/predict?study_hours=" 
+                "https://student-marks-rxah.onrender.com/predict?study_hours="
                 + encodeURIComponent(studyHours),
                 {
                     method: "POST"
